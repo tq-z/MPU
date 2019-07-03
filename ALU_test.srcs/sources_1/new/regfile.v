@@ -115,27 +115,6 @@ generate
     end
 endgenerate
 
-generate
-  for(i=0;i<SUPERSCALAR_AMT;i=i+1)
-    begin
-      always @ (*)
-        if(we)
-          begin
-            rf_w[wa5[i]] = wd5[i];
-            rf_w[wa6[i]] = wd6[i];
-          end
-    end
-endgenerate
-
-generate
-  for(i=0;i<SUPERSCALAR_AMT;i=i+1)
-    begin
-      assign rd1[i] = (ra1[i] != 0)? rf_r[ra1[i]] : 0;
-      assign rd2[i] = (ra2[i] != 0)? rf_r[ra2[i]] : 0;
-      assign rd3[i] = (ra3[i] != 0)? rf_r[ra3[i]] : 0;
-    end
-endgenerate
-);
 endmodule
 
 module reg_addr_decoder(
